@@ -1,17 +1,36 @@
 .logo{
-    width: 15%;
-    height: auto;
+    height: 80px;
 }
 
 .navbar{
     background-color: #CCCCCC;
+    height: 96px;
 }
 
-.navbar button{
+.botoes-nav button{
     font-family: "Poppins", sans-serif;
-    margin-right: 50px;
+    margin-right: 40px;
     border: 0px;
     background-color: none;
     font-weight: 500;
     background-color: #CCCCCC;
 }
+
+.hidden-nav{
+    background-color: #CCCCCC;
+}
+
+.hidden-nav button{
+    font-family: "Poppins", sans-serif;
+    border: 0px;
+    background-color: none;
+    font-weight: 500;
+    background-color: #CCCCCC;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.hidden-nav button:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
