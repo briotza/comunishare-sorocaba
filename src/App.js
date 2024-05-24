@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './assets/img/logo.png';
+import Home from './pages/Home';
 
 function App() {
 
@@ -27,14 +28,17 @@ function App() {
 
         {showMenu && (
            <div className='col-md-12 text-center d-md-none d-flex flex-column align-items-center hidden-nav'>
-           <button className="">Procurar</button>
-           <button className="">Sobre</button>
-           <button className="">Login</button>
+           <button>Procurar</button>
+           <button>Sobre</button>
+           <button>Login</button>
          </div>
         )}
-
+        <div className='col-md-12'>
+          <Home/>
+        </div>
       </div>
-      <h1></h1>
+        
+      
     </div>
   );
 }
