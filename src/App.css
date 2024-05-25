@@ -129,3 +129,7 @@
 .recommendations button:hover{
     background-color: #8f8d8d70;
 }
+
+.page-container footer{
+    background-color: #CCCCCC;
+}

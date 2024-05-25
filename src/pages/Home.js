@@ -6,8 +6,6 @@ import "../App.css";
 function Home() {
   return (
     <div>
-
-
       <div className="col-md-12 d-flex flex-row justify-content-center">
         <div className="col-md-4 intro">
           <div className="left d-flex flex-column justify-content-center ">
