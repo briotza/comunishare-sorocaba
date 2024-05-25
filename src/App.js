@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import logo from './assets/img/logo.png';
-import Home from './pages/Home';
-import SinglePage from './pages/SinglePage';
+import Home from './pages/Home.js';
+import SinglePage from './pages/SinglePage.js';
 
 function App() {
 
@@ -35,7 +37,13 @@ function App() {
          </div>
         )}
 
-          <SinglePage/>
+
+<BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="singlepage" element={<SinglePage />} />
+          </Routes>
+        </BrowserRouter>
       
       </div>
         

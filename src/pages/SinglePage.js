@@ -5,6 +5,7 @@ import "../App.css";
 
 function SinglePage() {
 
+
     return (
         <div>
             <div className="col-md-12 d-flex flex-row justify-content-center">
