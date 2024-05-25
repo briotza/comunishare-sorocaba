@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Moca from "../assets/img/moca.jpeg";
 import Foto from "../assets/img/no-pic.png";
 import Social from "../assets/img/social.png"
 import "../App.css";
@@ -29,39 +28,52 @@ function SinglePage() {
             </div>
 
             <div className="col-md-12 d-flex flex-column align-items-center mt-5 pt-4 pb-4 search">
-                <span className="d-block mb-4 h3">Pesquise por loja, serviço ou produto</span>
+                <span className="d-block mb-4 h2 pt-4">Nossos produtos e serviços</span>
+                <span className="d-block mt-4 mb-4 h4">Pesquise por algo específico:</span>
                 <form className="w-100">
                     <div className="input-group">
                         <input type="text" className="form-control col-md-6" placeholder="Pesquisar..." />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button">Filtros</button>
+                            <button className="btn btn-outline-secondary" type="button">Pesquisar</button>
                         </div>
                     </div>
                 </form>
             </div>
 
             <div className="col-md-12 d-flex flex-column align-items-center mt-5 recommendations">
-                <span className="d-block mb-4 h2 pt-5">Produtos e serviços em alta</span>
                 <div className="d-flex flex-column flex-sm-row mt-4">
                     <button className="d-flex flex-column">
                         <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
-                        <span>Nome da Loja</span>
-                        <p>Categoria</p>
+                        <span>produto/serviço</span>
+                        <p>R$ 999,99</p>
                     </button>
                     <button className="d-flex flex-column">
                         <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
-                        <span>Nome da Loja</span>
-                        <p>Categoria</p>
+                        <span>produto/serviço</span>
+                        <p>R$ 999,99</p>
                     </button>
                     <button className="d-flex flex-column">
                         <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
-                        <span>Nome da Loja</span>
-                        <p>Categoria</p>
+                        <span>produto/serviço</span>
+                        <p>R$ 999,99</p>
+                    </button>
+
+                </div>
+                <div className="d-flex flex-column flex-sm-row mt-4">
+                    <button className="d-flex flex-column">
+                        <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
+                        <span>produto/serviço</span>
+                        <p>R$ 999,99</p>
                     </button>
                     <button className="d-flex flex-column">
                         <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
-                        <span>Nome da Loja</span>
-                        <p>Categoria</p>
+                        <span>produto/serviço</span>
+                        <p>R$ 999,99</p>
+                    </button>
+                    <button className="d-flex flex-column">
+                        <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
+                        <span>produto/serviço</span>
+                        <p>R$ 999,99</p>
                     </button>
 
                 </div>
