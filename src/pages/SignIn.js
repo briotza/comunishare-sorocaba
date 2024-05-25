@@ -20,9 +20,7 @@ function SignIn() {
                     </form>
                     <button type='submit' className="btn btn-primary mt-3 mb-5">Entrar</button>
                 </div>
-
             </div>
-
         </div>
     );
 }

@@ -144,6 +144,10 @@
     max-width: 200px;
 }
 
-.page-login{
+.page-login, .page-signup{
     height: 100vh;
+}
+
+.form-group{
+    margin-right: 40px;
 }

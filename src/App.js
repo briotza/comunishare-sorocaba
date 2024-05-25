@@ -44,7 +44,7 @@ function App() {
 
 <BrowserRouter>
           <Routes>
-            <Route path="/" element={<SignIn />} />
+            <Route path="/" element={<SignUp />} />
             <Route path="singlepage" element={<SinglePage />} />
           </Routes>
         </BrowserRouter>
