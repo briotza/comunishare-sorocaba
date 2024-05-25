@@ -39,7 +39,7 @@ function App() {
            <div className='col-md-12 text-center d-md-none d-flex flex-column align-items-center hidden-nav'>
            <button>Procurar</button>
            <button>Sobre</button>
-           <button>Login</button>
+           <button><Link to='/signin' className="link-login m-auto">Login</Link></button>
          </div>
         )}
 

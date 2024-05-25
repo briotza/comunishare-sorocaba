@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Foto from "../assets/img/no-pic.png";
 import Social from "../assets/img/social.png"
 import "../App.css";
@@ -17,7 +16,7 @@ function SinglePage() {
         <div>
             <div className="col-md-12 d-flex flex-row justify-content-center">
                 <div className="col-md-4 intro">
-                    <div className="left d-flex flex-column justify-content-center ">
+                    <div className="left d-flex flex-column justify-content-center mb-4">
                         <span className="d-block mb-2 h2">Nome da loja</span>
                         <p className="mt-0">CATEGORIA</p>
                         <p className="mt-1">

@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import Moca from "../assets/img/moca.jpeg";
 import Foto from "../assets/img/no-pic.png";
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import "../App.css";
 
 function Home() {
+
+  const location = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [location]);
+    
   return (
     <div>
       <div className="col-md-12 d-flex flex-row justify-content-center">
