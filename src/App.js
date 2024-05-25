@@ -12,8 +12,8 @@ function App() {
   };
 
   return (
-    <div className="container-fluid page-container">
-      <div className="row">
+    <div className="container-fluid page-container p-0">
+      <div className="row m-0">
       <nav className="navbar navbar-light nav-bar">
           <img src={logo} alt='logo-comunishare' className='logo'/>
           <div className="d-none d-md-block botoes-nav">
@@ -33,11 +33,10 @@ function App() {
            <button>Login</button>
          </div>
         )}
-<div className='row full-height'>
 
           <Home/>
        
-        </div>
+      
       </div>
         
       

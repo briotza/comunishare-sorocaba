@@ -3,47 +3,24 @@ import Moca from "../assets/img/moca.jpeg";
 import "../App.css";
 
 function Home() {
-    return (
-        <div className="col-md-12 d-flex flex-row justify-content-center">
-        <div className="col-md-4 intro">
-          <div className="left d-flex flex-column justify-content-center ">
-            <span className="d-block mb-2 h2">Se conecte com empresas e serviços.</span> 
-            <p className="mb-3">
-                    O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
-                    serviços!
-                  </p>
-            <button className="btn btn-primary">CADASTRE-SE</button>
-          </div>
-          
-        </div>
-        <div className="col-md-4 right d-flex flex-column justify-content-center align-items-center">
-          <img src={Moca} alt="Imagem exemplo" className="img-fluid" />
+  return (
+    <div className="col-md-12 d-flex flex-row justify-content-center bg-info">
+      <div className="col-md-4 intro">
+        <div className="left d-flex flex-column justify-content-center ">
+          <span className="d-block mb-2 h2">Se conecte com empresas e serviços.</span>
+          <p className="mb-3">
+            O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
+            serviços!
+          </p>
+          <button className="btn btn-primary">CADASTRE-SE</button>
         </div>
 
-
-
-
-
-
-        {/* Adiciona padding superior 
-          <div className="row">
-            <div className="d-flex flex-column flex-md-row align-items-center justify-content-center intro">
-              <div className="left mb-4 mb-md-0 text-md-left">
-                <span className="d-block mb-2 h2">Se conecte com empresas e serviços.</span> 
-                <p className="mb-3">
-                  O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
-                  serviços!
-                </p>
-                <button className="btn btn-primary">CADASTRE-SE</button>
-              </div>
-              <div className="col-12 col-md-6 d-flex justify-content-center align-items-center right">
-                <img src={Cinza} alt="Imagem exemplo" className="img-fluid" />
-              </div>
-            </div>
-          </div>
-        */}
-        </div>
-      );
-    }
+      </div>
+      <div className="col-md-4 right d-flex flex-column justify-content-center align-items-center">
+        <img src={Moca} alt="Imagem exemplo" className="img-fluid" />
+      </div>
+    </div>
+  );
+}
 
 export default Home;
