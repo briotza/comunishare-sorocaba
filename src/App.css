@@ -9,6 +9,7 @@
 .navbar{
     background-color: #CCCCCC;
     height: 96px;
+    padding-inline: 20px;
 }
 
 .botoes-nav button{
