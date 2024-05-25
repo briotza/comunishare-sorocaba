@@ -24,7 +24,7 @@ function App() {
     <div className="container-fluid page-container p-0">
       <div className="row m-0">
       <nav className="navbar navbar-light nav-bar">
-          <img src={logo} alt='logo-comunishare' className='logo'/>
+          <Link to="/"><img src={logo} alt='logo-comunishare' className='logo'/></Link>
           <div className="d-none d-md-block botoes-nav">
             <button>Procurar</button>
             <button>Sobre</button>
