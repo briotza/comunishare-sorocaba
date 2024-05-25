@@ -104,3 +104,27 @@
 .search form{
     max-width: 700px;
 }
+
+.recommendations{
+    background-color: #F8F8F8;
+}
+
+.recommendations span{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+.recommendations img{
+    max-width: 150px;
+}
+
+.recommendations button{
+    border: 0px;
+    background-color: #F8F8F8;
+    padding-inline: 30px;
+    margin-bottom: 50px;
+}
+
+.recommendations button:hover{
+    background-color: #8f8d8d70;
+}
