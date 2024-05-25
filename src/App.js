@@ -3,8 +3,12 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import logo from './assets/img/logo.png';
+
+//Páginas
 import Home from './pages/Home.js';
 import SinglePage from './pages/SinglePage.js';
+import SignIn from './pages/SignIn.js';
+import SignUp from './pages/SignUp.js';
 
 function App() {
 
@@ -40,7 +44,7 @@ function App() {
 
 <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<SignIn />} />
             <Route path="singlepage" element={<SinglePage />} />
           </Routes>
         </BrowserRouter>

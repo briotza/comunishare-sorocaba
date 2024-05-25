@@ -143,3 +143,7 @@
 .media{
     max-width: 200px;
 }
+
+.page-login{
+    height: 100vh;
+}

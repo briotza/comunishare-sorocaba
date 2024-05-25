@@ -9,7 +9,6 @@ function SinglePage() {
     const location = useLocation();
 
     useEffect(() => {
-      // Scroll para o topo quando a rota muda
       window.scrollTo(0, 0);
     }, [location]);
 
