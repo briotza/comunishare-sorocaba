@@ -40,26 +40,26 @@ function Home() {
       <div className="col-md-12 d-flex flex-column align-items-center mt-5 recommendations">
         <span className="d-block mb-4 h2 pt-5">Produtos e serviços em alta</span>
         <div className="d-flex flex-column flex-sm-row mt-4">
-          <Link to="/singlepage" className="d-flex flex-column">
+          <Link to="/singlepage" className="d-flex flex-column recommendations-button">
             <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
             <p>Categoria</p>
           </Link>
-          <button className="d-flex flex-column">
+          <Link to="/singlepage" className="d-flex flex-column recommendations-button">
             <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
             <p>Categoria</p>
-          </button>
-          <button className="d-flex flex-column">
+          </Link>
+          <Link to="/singlepage" className="d-flex flex-column recommendations-button">
             <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
             <p>Categoria</p>
-          </button>
-          <button className="d-flex flex-column">
+          </Link>
+          <Link to="/singlepage" className="d-flex flex-column recommendations-button">
             <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
             <p>Categoria</p>
-          </button>
+          </Link>
 
         </div>
       </div>
