@@ -12,13 +12,15 @@
     padding-inline: 20px;
 }
 
-.botoes-nav button{
+.botoes-nav button, .link-login{
     font-family: "Poppins", sans-serif;
     margin-right: 40px;
     border: 0px;
     background-color: none;
     font-weight: 500;
     background-color: #CCCCCC;
+    color: black;
+    text-decoration: none;
 }
 
 .hidden-nav{
@@ -43,13 +45,13 @@
     max-height: 400px;
 }
 
-.intro button{
-    background-color: #000000;
+.intro button, .btn-signup, .btn-signin{
     height: 56px;
     width: 180px;
     color: #FFFFFF;
     font-family: "Poppins", sans-serif;
     border-radius: 4px;
+    text-decoration: none;
 }
 
 .left{

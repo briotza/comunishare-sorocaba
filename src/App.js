@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom/client";
+import { Link } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import logo from './assets/img/logo.png';
@@ -19,6 +20,7 @@ function App() {
   };
 
   return (
+    <BrowserRouter>
     <div className="container-fluid page-container p-0">
       <div className="row m-0">
       <nav className="navbar navbar-light nav-bar">
@@ -26,7 +28,7 @@ function App() {
           <div className="d-none d-md-block botoes-nav">
             <button>Procurar</button>
             <button>Sobre</button>
-            <button>Login</button>
+            <button><Link to='/signin' className="link-login">Login</Link></button>
           </div>
           <button className="navbar-toggler d-md-none nav-btn" type="button" onClick={toggleMenu}>
             <span className="navbar-toggler-icon"></span>
@@ -41,13 +43,12 @@ function App() {
          </div>
         )}
 
-
-<BrowserRouter>
           <Routes>
-            <Route path="/" element={<SignUp />} />
+            <Route path="/" element={<Home />} />
             <Route path="singlepage" element={<SinglePage />} />
+            <Route path="signin" element={<SignIn />} />
+            <Route path="signup" element={<SignUp />} />
           </Routes>
-        </BrowserRouter>
       
       </div>
         
@@ -57,6 +58,7 @@ function App() {
       </div>
     </footer>
     </div>
+    </BrowserRouter>
   );
 }
 

@@ -15,7 +15,7 @@ function Home() {
               O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
               serviços!
             </p>
-            <button className="btn btn-primary">CADASTRE-SE</button>
+            <Link to="" className="btn-signup"><button className="btn btn-primary">CADASTRE-SE</button></Link>
           </div>
 
         </div>

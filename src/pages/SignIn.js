@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function SignIn() {
 
@@ -15,10 +16,10 @@ function SignIn() {
                         <div className="form-group">
                             <label htmlFor="password">Senha</label>
                             <input type="password" className="form-control mt-2 mb-4" id="password" placeholder="Digite sua senha" />
-                            <span>Não possui uma conta? Cadastre-se</span>
+                            <span>Não possui uma conta? <Link to="/signup">Cadastre-se</Link></span>
                         </div>
                     </form>
-                    <button type='submit' className="btn btn-primary mt-3 mb-5">Entrar</button>
+                    <Link to="/" className='btn-signin'><button type='submit' className="btn btn-primary mt-3 mb-5">Entrar</button></Link>
                 </div>
             </div>
         </div>

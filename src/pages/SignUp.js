@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
 
@@ -48,7 +49,7 @@ function SignUp() {
                         
                         </form>
 
-                    <button type='submit' className="btn btn-primary mt-3 mb-5">Cadastrar</button>
+                        <Link to="/" className="btn-signup"><button type='submit' className="btn btn-primary mt-3 mb-5">Cadastrar</button></Link>
                 </div>
             </div>
         </div>
