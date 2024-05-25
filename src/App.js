@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './assets/img/logo.png';
 import Home from './pages/Home';
+import SinglePage from './pages/SinglePage';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
          </div>
         )}
 
-          <Home/>
+          <SinglePage/>
       
       </div>
         

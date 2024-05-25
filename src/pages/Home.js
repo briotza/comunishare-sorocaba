@@ -42,29 +42,27 @@ function Home() {
           <button className="d-flex flex-column">
           <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
-            <p>Especialidade</p>
+            <p>Categoria</p>
           </button>
           <button className="d-flex flex-column">
           <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
-            <p>Especialidade</p>
+            <p>Categoria</p>
           </button>
           <button className="d-flex flex-column">
           <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
-            <p>Especialidade</p>
+            <p>Categoria</p>
           </button>
           <button className="d-flex flex-column">
           <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
             <span>Nome da Loja</span>
-            <p>Especialidade</p>
+            <p>Categoria</p>
           </button>
           
         </div>
       </div>
     </div>
-
-
 
   );
 }

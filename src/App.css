@@ -133,3 +133,7 @@
 .page-container footer{
     background-color: #CCCCCC;
 }
+
+.media{
+    max-width: 200px;
+}
