@@ -1,14 +1,35 @@
 import React, { useState, useEffect } from "react";
-import Cinza from "../assets/img/cinza.jpg";
+import Moca from "../assets/img/moca.jpeg";
 import "../App.css";
 
 function Home() {
     return (
-        <div className="container-fluid page-container pt-5"> {/* Adiciona padding superior */}
+        <div className="col-md-12 d-flex flex-row justify-content-center">
+        <div className="col-md-4 intro">
+          <div className="left d-flex flex-column justify-content-center ">
+            <span className="d-block mb-2 h2">Se conecte com empresas e serviços.</span> 
+            <p className="mb-3">
+                    O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
+                    serviços!
+                  </p>
+            <button className="btn btn-primary">CADASTRE-SE</button>
+          </div>
+          
+        </div>
+        <div className="col-md-4 right d-flex flex-column justify-content-center align-items-center">
+          <img src={Moca} alt="Imagem exemplo" className="img-fluid" />
+        </div>
+
+
+
+
+
+
+        {/* Adiciona padding superior 
           <div className="row">
-            <div className="col-12 d-flex flex-column flex-md-row align-items-center justify-content-center intro">
-              <div className="col-12 col-md-6 left mb-4 mb-md-0 text-md-left">
-                <span className="d-block mb-2 h2">Se conecte com empresas e serviços.</span> {/* Tamanho da fonte ajustado */}
+            <div className="d-flex flex-column flex-md-row align-items-center justify-content-center intro">
+              <div className="left mb-4 mb-md-0 text-md-left">
+                <span className="d-block mb-2 h2">Se conecte com empresas e serviços.</span> 
                 <p className="mb-3">
                   O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
                   serviços!
@@ -20,6 +41,7 @@ function Home() {
               </div>
             </div>
           </div>
+        */}
         </div>
       );
     }

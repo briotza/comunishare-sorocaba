@@ -33,8 +33,10 @@ function App() {
            <button>Login</button>
          </div>
         )}
-        <div className='col-md-12'>
+<div className='row full-height'>
+
           <Home/>
+       
         </div>
       </div>
         
