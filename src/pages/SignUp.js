@@ -34,7 +34,7 @@ function SignUp() {
         }
         try {
             const response = await axios.post('http://localhost:8800/usuarios', formData);
-
+    
             if (response.status === 201) {
                 alert('Usuário criado com sucesso!');
                 setFormData({
@@ -48,14 +48,17 @@ function SignUp() {
                     senha: ''
                 });
                 navigate('/');
-            } else {
-                alert('Erro ao criar usuário');
             }
         } catch (error) {
-            console.error('Erro ao enviar solicitação:', error);
-            alert('Erro ao criar usuário');
+            if (error.response && error.response.status === 409) {
+                alert('Este email já está cadastrado');
+            } else {
+                console.error('Erro ao enviar solicitação:', error);
+                alert('Erro ao criar usuário');
+            }
         }
     };
+    
 
 
     return (

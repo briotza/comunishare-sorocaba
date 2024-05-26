@@ -1,4 +1,3 @@
-// Controlador para criar um novo usuário
 const createUser = async (req, res) => {
     const { nome, nascimento, email, celular, endereco, numero, bairro, senha } = req.body;
 
@@ -9,6 +8,13 @@ const createUser = async (req, res) => {
 
     try {
         const db = req.app.get('db');
+
+        // Verifica se o email já está cadastrado
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+        if (rows.length > 0) {
+            return res.status(409).json({ message: 'Este email já está cadastrado' });
+        }
+
         // Insere os dados do usuário no banco de dados
         await db.query('INSERT INTO usuarios (nome, nascimento, email, celular, endereco, numero, bairro, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [nome, nascimento, email, celular, endereco, numero, bairro, senha]);
 
