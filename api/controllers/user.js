@@ -42,8 +42,10 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Credenciais inválidas' });
         }
 
-        console.log('Login bem-sucedido');
-        return res.status(200).json({ message: 'Login bem-sucedido' });
+        const user = rows[0];
+        console.log('Login bem-sucedido', user);
+
+        return res.status(200).json({ message: 'Login bem-sucedido', user });
     } catch (error) {
         console.error('Erro ao fazer login:', error);
         return res.status(500).json({ message: 'Erro interno do servidor' });
@@ -51,6 +53,7 @@ const loginUser = async (req, res) => {
 };
 
 module.exports = { createUser, loginUser };
+
 
 
 
