@@ -5,7 +5,7 @@ import axios from 'axios';
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
@@ -17,16 +17,23 @@ function SignIn() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('Enviando dados de login:', { email, password });
         try {
-            const response = await axios.post('http://localhost:8800/login', { email, password });
-    
+            const response = await axios.post('http://localhost:8800/usuarios/login', { email, senha: password });
+            console.log('Resposta do servidor:', response);
+
             if (response.status === 200) {
-                // Login bem-sucedido, redirecionar para a página inicial
-                history('/');
+                alert('Login bem-sucedido');
+                navigate('/');
             }
         } catch (error) {
-            if (error.response && error.response.status === 401) {
-                alert('Credenciais inválidas');
+            if (error.response) {
+                console.log('Erro na resposta do servidor:', error.response);
+                if (error.response.status === 401) {
+                    alert('Credenciais inválidas');
+                } else {
+                    alert('Erro ao fazer login');
+                }
             } else {
                 console.error('Erro ao fazer login:', error);
                 alert('Erro ao fazer login');

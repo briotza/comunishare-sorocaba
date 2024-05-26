@@ -27,18 +27,22 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const { email, senha } = req.body;
+    console.log('Requisição de login recebida:', { email, senha });
 
     try {
         const db = req.app.get('db');
+        console.log('Conectando ao banco de dados...');
 
         // Verifica se o usuário com o email e senha fornecidos existe no banco de dados
         const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
+        console.log('Resultado da consulta:', rows);
+
         if (rows.length === 0) {
-            // Credenciais inválidas
+            console.log('Credenciais inválidas');
             return res.status(401).json({ message: 'Credenciais inválidas' });
         }
 
-        // Login bem-sucedido
+        console.log('Login bem-sucedido');
         return res.status(200).json({ message: 'Login bem-sucedido' });
     } catch (error) {
         console.error('Erro ao fazer login:', error);
@@ -47,5 +51,7 @@ const loginUser = async (req, res) => {
 };
 
 module.exports = { createUser, loginUser };
+
+
 
 
