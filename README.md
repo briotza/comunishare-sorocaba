@@ -18,5 +18,3 @@ O sistema *ComuniShare Sorocaba* foi desenvolvido utilizando as seguintes tecnol
 
 Para rodar o backend do *ComuniShare Sorocaba*, siga as instruções contidas no README da API. Este documento fornecerá um guia passo a passo para configurar e executar o backend da aplicação em seu ambiente local.
 
----
-Este projeto foi desenvolvido como parte do curso UPX III e atualmente está em fase de protótipo. Para mais informações sobre o funcionamento da plataforma, consulte a documentação fornecida na API.
