@@ -14,7 +14,7 @@ O sistema *ComuniShare Sorocaba* foi desenvolvido utilizando as seguintes tecnol
 - Backend: Node.js, Express
 - Banco de Dados: MySQL
 
-## Como Rodar o Backend
+## Como Rodar
 
-Para rodar o backend do *ComuniShare Sorocaba*, siga as instruções contidas no README da API. Este documento fornecerá um guia passo a passo para configurar e executar o backend da aplicação em seu ambiente local.
+Após clonar o repositório, abra o terminal na raiz do projeto e digite `npm install`, após instalação digite `npm start`. Para rodar o backend siga as instruções contidas no README da API. Este documento fornecerá um guia passo a passo para configurar e executar o backend da aplicação em seu ambiente local.
 
