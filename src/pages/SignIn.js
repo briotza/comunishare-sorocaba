@@ -54,7 +54,10 @@ function SignIn() {
                         <div className="form-group">
                             <label htmlFor="password">Senha</label>
                             <input type="password" className="form-control mt-2 mb-4" id="password" value={password} onChange={handleChangePassword} placeholder="Digite sua senha" required />
-                            <span>Não possui uma conta? <Link to="/signup">Cadastre-se</Link></span>
+                            <span><Link to="">Esqueci a senha</Link></span>
+                        </div>
+                        <div className='form-group pt-2'>
+                            <span className=''>Não possui uma conta? <Link to="/signup">Cadastre-se</Link></span>
                         </div>
                         <button type='submit' className="btn btn-primary mt-3 mb-5">Entrar</button>
                     </form>
