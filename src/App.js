@@ -10,6 +10,7 @@ import Home from './pages/Home.js';
 import SinglePage from './pages/SinglePage.js';
 import SignIn from './pages/SignIn.js';
 import SignUp from './pages/SignUp.js';
+import ItemPage from './pages/ItemPage.js';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="singlepage" element={<SinglePage />} />
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="item" element={<ItemPage />} />
           </Routes>
       
       </div>

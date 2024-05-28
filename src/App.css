@@ -108,13 +108,19 @@
     max-width: 700px;
 }
 
+.a{
+    text-decoration: none;
+}
+
 .recommendations{
     background-color: #F8F8F8;
+    text-decoration: none;
 }
 
 .recommendations span{
     font-family: "Poppins", sans-serif;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .recommendations img{
