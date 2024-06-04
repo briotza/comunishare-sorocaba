@@ -18,7 +18,7 @@ function ItemPage() {
       <div className="col-md-12 d-flex flex-row justify-content-center">
         <div className="col-md-4 intro">
           <div className="left d-flex flex-column justify-content-center mb-4 mt-5">
-            <span className="d-block mb-2 h1">Nome do Item</span>
+            <span className="d-block mb-2 h1">Produto/Serviço</span>
             <p className="mt-3 h4">R$ 999,99</p>
             <p className="mt-0">
               Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing
