@@ -85,5 +85,21 @@ const updateUserPassword = async (req, res) => {
 };
 
   
-  module.exports = { createUser, loginUser, updateUserPassword };
+const checkEmail = async (req, res) => {
+    const { email } = req.body;
+    try {
+        const db = req.app.get('db');
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Email não encontrado' });
+        }
+        return res.status(200).json({ message: 'Email encontrado' });
+    } catch (error) {
+        console.error('Erro ao verificar email:', error);
+        return res.status(500).json({ message: 'Erro interno do servidor' });
+    }
+};
+
+module.exports = { createUser, loginUser, updateUserPassword, checkEmail };
+
   
