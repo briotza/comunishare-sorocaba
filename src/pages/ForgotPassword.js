@@ -1,31 +1,50 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../App.css";
 
 function ForgotPassword() {
-  const location = useLocation();
+  const [codigo, setCodigo] = useState("");
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+  const handleCodigoChange = (event) => {
+    setCodigo(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (codigo === "1234") {
+      navigate("/newpassword");
+    } else {
+      setError(true);
+    }
+  };
 
   return (
     <div className="d-flex flex-row justify-content-center page-login">
       <div className="col-md-4 intro">
         <div className="left d-flex flex-column justify-content-center ">
           <span className="d-block mb-4 h2">Esqueci a senha</span>
-          <form >
+          <form onSubmit={handleSubmit}>
             <div className="form-group mb-1">
-              <label htmlFor="email">Um código foi enviado para seu e-mail de cadastro</label>
+              <label htmlFor="codigo">
+                Um código foi enviado para seu e-mail de cadastro
+              </label>
               <input
-                type="codigo"
+                type="text"
                 className="form-control mt-2 mb-4"
                 id="codigo"
+                value={codigo}
+                onChange={handleCodigoChange}
                 placeholder="Digite o código"
                 required
               />
-              <span>(Código: 1234)</span>
+              <div className="d-flex flex-column">
+                {error && (
+                  <span className="text-danger mb-2">(Código incorreto)</span>
+                )}
+                <span>(Código: 1234)</span>
+              </div>
             </div>
             <button type="submit" className="btn btn-primary mt-3 mb-5">
               Ok
