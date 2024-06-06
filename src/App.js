@@ -23,6 +23,12 @@ function Navbar() {
     setShowMenu(!showMenu);
   };
 
+  const getFirstName = (fullName) => {
+    if (!fullName) return '';
+    const firstName = fullName.split(' ')[0];
+    return firstName;
+};
+
   return (
     <div className="row m-0 p-0">
       <nav className="navbar navbar-light nav-bar">
@@ -31,7 +37,7 @@ function Navbar() {
               <button>Procurar</button>
               <button>Sobre</button>
               {user ? (
-                  <span>{user.nome}</span>
+                  <button><Link to='/signin' className="link-login">{getFirstName(user.nome)}</Link></button>
               ) : (
                   <button><Link to='/signin' className="link-login">Login</Link></button>
               )}
@@ -45,7 +51,7 @@ function Navbar() {
            <button>Procurar</button>
            <button>Sobre</button>
            {user ? (
-                  <span>{user.nome}</span>
+                  <button><Link to='/signin' className="link-login">{getFirstName(user.nome)}</Link></button>
               ) : (
                   <button><Link to='/signin' className="link-login">Login</Link></button>
               )}
