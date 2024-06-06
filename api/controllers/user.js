@@ -68,7 +68,7 @@ const updateUserPassword = async (req, res) => {
         } else {
             // Atualize a senha do usuário no banco de dados
             const [updateResult] = await db.query('UPDATE usuarios SET senha = ? WHERE email = ?', [newPassword, email]);
-            console.log('Resultado da atualização:', updateResult); // Adiciona esta linha para verificar o resultado da atualização
+            console.log('Resultado da atualização:', updateResult); 
 
             if (updateResult.affectedRows === 0) {
                 console.log('Erro ao atualizar a senha: nenhuma linha afetada');
