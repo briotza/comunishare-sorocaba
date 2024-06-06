@@ -52,7 +52,38 @@ const loginUser = async (req, res) => {
     }
 };
 
-module.exports = { createUser, loginUser };
+// Adicione isso no arquivo user.js
+const updateUserPassword = async (req, res) => {
+    const { email, newPassword } = req.body;
+    console.log('Recebido solicitação de atualização de senha para o email:', email);
+    
+    try {
+        const db = req.app.get('db');
+        console.log('Conectando ao banco de dados...');
+  
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+        if (rows.length === 0) {
+            console.log('Email inválido');
+            return res.status(401).json({ message: 'Email inválido' });
+        } else {
+            // Atualize a senha do usuário no banco de dados
+            const [updateResult] = await db.query('UPDATE usuarios SET senha = ? WHERE email = ?', [newPassword, email]);
+            console.log('Resultado da atualização:', updateResult); // Adiciona esta linha para verificar o resultado da atualização
 
+            if (updateResult.affectedRows === 0) {
+                console.log('Erro ao atualizar a senha: nenhuma linha afetada');
+                return res.status(500).json({ message: 'Erro ao atualizar a senha' });
+            }
 
+            console.log('Senha atualizada com sucesso');
+            return res.status(200).json({ message: 'Senha atualizada com sucesso' });
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar a senha do usuário:', error);
+        return res.status(500).json({ message: 'Erro interno do servidor' });
+    }
+};
 
+  
+  module.exports = { createUser, loginUser, updateUserPassword };
+  
