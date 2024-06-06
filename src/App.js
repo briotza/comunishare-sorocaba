@@ -12,6 +12,7 @@ import SignIn from './pages/SignIn.js';
 import SignUp from './pages/SignUp.js';
 import ItemPage from './pages/ItemPage.js';
 import ForgotPassword from './pages/ForgotPassword.js'
+import NewPassword from './pages/NewPassword.js';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="signup" element={<SignUp />} />
             <Route path="item" element={<ItemPage />} />
             <Route path="password" element={<ForgotPassword/>} />
+            <Route path="newpassword" element={<NewPassword/>} />
           </Routes>
       
       </div>
