@@ -24,11 +24,11 @@ function NewPassword() {
     <div className="d-flex flex-row justify-content-center page-login">
       <div className="col-md-4 intro">
         <div className="left d-flex flex-column justify-content-center ">
-          <span className="d-block mb-4 h2">Esqueci a senha</span>
+          <span className="d-block mb-4 h2">Nova Senha</span>
           <form onSubmit={handleSubmit}>
             <div className="form-group mb-1">
               <label htmlFor="codigo">
-                Um código foi enviado para seu e-mail de cadastro
+                Defina uma nova senha:
               </label>
               <input
                 type="text"
@@ -36,15 +36,9 @@ function NewPassword() {
                 id="codigo"
                 value={codigo}
                 onChange={handleCodigoChange}
-                placeholder="Digite o código"
+                placeholder="Nova senha"
                 required
               />
-              <div className="d-flex flex-column">
-                {error && (
-                  <span className="text-danger mb-2">(Código incorreto)</span>
-                )}
-                <span>(Código: 1234)</span>
-              </div>
             </div>
             <button type="submit" className="btn btn-primary mt-3 mb-5">
               Ok
