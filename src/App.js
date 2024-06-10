@@ -15,6 +15,7 @@ import ItemPage from './pages/ItemPage.js';
 import ForgotPassword from './pages/ForgotPassword.js'
 import NewPassword from './pages/NewPassword.js';
 import Profile from './pages/Profile.js';
+import NewStore from './pages/NewStore.js';
 
 function Navbar() {
   const { user } = useUser();
@@ -78,6 +79,8 @@ function App() {
                           <Route path="password" element={<ForgotPassword />} />
                           <Route path="newpassword" element={<NewPassword />} />
                           <Route path="profile" element={<Profile />} />
+                          <Route path="newstore" element={<NewStore />} />
+                          
                       </Routes>
                   </div>
                   <footer className="footer mt-auto py-3">

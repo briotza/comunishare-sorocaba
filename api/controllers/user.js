@@ -100,6 +100,28 @@ const checkEmail = async (req, res) => {
     }
 };
 
-module.exports = { createUser, loginUser, updateUserPassword, checkEmail };
+const updateUserProfile = async (req, res) => {
+    const { nome, nascimento, email, celular, endereco, numero, bairro, senha } = req.body;
+
+    try {
+        const db = req.app.get('db');
+        
+        // Atualize os dados do usuário no banco de dados
+        await db.query('UPDATE usuarios SET nome = ?, nascimento = ?, celular = ?, endereco = ?, numero = ?, bairro = ?, senha = ? WHERE email = ?', 
+            [nome, nascimento, celular, endereco, numero, bairro, senha, email]);
+
+        // Obtenha o usuário atualizado
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+        const updatedUser = rows[0];
+
+        return res.status(200).json({ message: 'Usuário atualizado com sucesso', user: updatedUser });
+    } catch (error) {
+        console.error('Erro ao atualizar usuário:', error);
+        return res.status(500).json({ message: 'Erro interno do servidor' });
+    }
+};
+
+module.exports = { createUser, loginUser, updateUserPassword, checkEmail, updateUserProfile };
+
 
   

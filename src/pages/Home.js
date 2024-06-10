@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Moca from "../assets/img/moca.jpeg";
 import Foto from "../assets/img/no-pic.png";
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from './UserContext'; // Importe useUser do contexto de usuário
 import "../App.css";
 
 function Home() {
+  const { user } = useUser(); // Obtenha o usuário do contexto
+  const navigate = useNavigate(); // Use useNavigate para redirecionar
 
-  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [location]);
+  const handleSignup = () => {
+    // Verifique se o usuário está logado
+    if (user) {
+      // Se estiver logado, redirecione para a página de perfil
+      navigate('/profile');
+    } else {
+      // Se não estiver logado, redirecione para a página de login
+      navigate('/signin');
+    }
+  };
     
   return (
     <div>
@@ -23,7 +34,7 @@ function Home() {
               O ComuniShare é uma aplicativo de pesquisa e cadastro de empresas e
               serviços!
             </p>
-            <Link to="" className="btn-signup"><button className="btn btn-primary">CADASTRE-SE</button></Link>
+            <button className="btn btn-primary" onClick={handleSignup}>CADASTRE-SE</button>
           </div>
 
         </div>
@@ -72,7 +83,6 @@ function Home() {
         </div>
       </div>
     </div>
-
   );
 }
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createUser, loginUser, updateUserPassword, checkEmail } = require('../controllers/user');
+const { createUser, loginUser, updateUserPassword, checkEmail, updateUserProfile } = require('../controllers/user');
 
 // Rota para criar um novo usuário
 router.post('/', createUser);
@@ -13,5 +13,8 @@ router.put('/updatepassword', updateUserPassword);
 
 // Rota para verificar email
 router.post('/checkemail', checkEmail);
+
+// Rota para atualizar perfil
+router.put('/update', updateUserProfile);
 
 module.exports = router;

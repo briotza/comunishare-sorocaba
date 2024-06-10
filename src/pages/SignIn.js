@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
-import { useUser } from './UserContext'; // Importe o hook useUser
+import { useUser } from './UserContext';
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { setUser } = useUser(); // Use o hook useUser para obter setUser
+    const { setUser } = useUser();
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
@@ -19,11 +19,8 @@ function SignIn() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Enviando dados de login:', { email, password });
         try {
             const response = await axios.post('http://localhost:8800/usuarios/login', { email, senha: password });
-            console.log('Resposta do servidor:', response);
-
             if (response.status === 200) {
                 alert('Login bem-sucedido');
                 setUser(response.data.user); // Armazena as informações do usuário
@@ -31,14 +28,12 @@ function SignIn() {
             }
         } catch (error) {
             if (error.response) {
-                console.log('Erro na resposta do servidor:', error.response);
                 if (error.response.status === 401) {
                     alert('Credenciais inválidas');
                 } else {
                     alert('Erro ao fazer login');
                 }
             } else {
-                console.error('Erro ao fazer login:', error);
                 alert('Erro ao fazer login');
             }
         }
