@@ -1,3 +1,4 @@
+
 const createUser = async (req, res) => {
     const { nome, nascimento, email, celular, endereco, numero, bairro, senha } = req.body;
 
@@ -121,7 +122,11 @@ const updateUserProfile = async (req, res) => {
     }
 };
 
+
+
 module.exports = { createUser, loginUser, updateUserPassword, checkEmail, updateUserProfile };
+
+
 
 
   

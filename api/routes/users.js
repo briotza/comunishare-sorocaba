@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createUser, loginUser, updateUserPassword, checkEmail, updateUserProfile } = require('../controllers/user');
+const { createUser, loginUser, updateUserPassword, checkEmail, updateUserProfile, createStore } = require('../controllers/user');
 
 // Rota para criar um novo usuário
 router.post('/', createUser);

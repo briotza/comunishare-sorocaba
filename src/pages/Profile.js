@@ -59,6 +59,23 @@ function Profile() {
         navigate('/newstore'); // Redireciona para a página de login
     };
 
+    const [storeName, setStoreName] = useState('');
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8800/usuarios/${user.id}`); // Assuming your backend has an endpoint to fetch user data including the store name
+                setStoreName(response.data.storeName);
+            } catch (error) {
+                console.error('Erro ao buscar dados do usuário:', error);
+            }
+        };
+
+        if (user) {
+            fetchUserData();
+        }
+    }, [user]);
+
     return (
         <div className='d-flex flex-row justify-content-center page-login'>
             <div className="col-md-8 intro">
@@ -107,6 +124,7 @@ function Profile() {
                         <button type='submit' className="btn btn-primary mt-3 mb-3">Editar</button>
                         <button className="btn btn-primary mt-3 mb-3 btn-logout" onClick={handleLogout}>Sair</button>
                     </form>
+                    <p>Nome da loja: {storeName}</p>
                     <button className="btn btn-primary mt-3 mb-3" onClick={createStore}>Criar Loja</button>
                 </div>
             </div>

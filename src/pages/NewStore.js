@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
+import { useUser } from './UserContext'; 
 
 function NewStore() {
+    const { user } = useUser();
     const [formData, setFormData] = useState({
         nome: '',
-        nascimento: '',
+        categoria: '',
         email: '',
-        celular: '',
+        telefone: '',
         endereco: '',
         numero: '',
         bairro: '',
-        senha: ''
+        id_usuario: user ? user.id : ''
     });
 
     const navigate = useNavigate();
@@ -26,47 +28,32 @@ function NewStore() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        for (const key in formData) {
-            if (formData.hasOwnProperty(key) && typeof formData[key] === 'string' && formData[key].trim() === '') {
-                alert(`O campo ${key} é obrigatório`);
-                return;
-            }
-        }
+        
         try {
-            const response = await axios.post('http://localhost:8800/usuarios', formData);
+            const response = await axios.post('http://localhost:8800/loja/store', formData);
     
             if (response.status === 201) {
-                alert('Usuário criado com sucesso!');
-                setFormData({
-                    nome: '',
-                    nascimento: '',
-                    email: '',
-                    celular: '',
-                    endereco: '',
-                    numero: '',
-                    bairro: '',
-                    senha: ''
-                });
-                navigate('/signin');
+                alert('Loja criada com sucesso!');
+    
+                // Exibir os dados da loja no console
+                console.log('Dados da loja cadastrada:', formData);
+    
+                navigate('/profile'); // Redirect to profile page
             }
         } catch (error) {
-            if (error.response && error.response.status === 409) {
-                alert('Este email já está cadastrado');
-            } else {
-                console.error('Erro ao enviar solicitação:', error);
-                alert('Erro ao criar usuário');
-            }
+            console.error('Erro ao criar loja:', error);
+            alert('Erro ao criar loja');
+            console.log('Dados da loja cadastrada:', formData);
         }
     };
     
 
-
     return (
         <div className='d-flex flex-row justify-content-center page-signup'>
-      <div className="col-md-8 intro">
-        <div className="left d-flex flex-column justify-content-center ">
-          <span className="d-block mb-4 h2">Criar Loja</span>
-          <form className='col-md-12' onSubmit={handleSubmit}>
+            <div className="col-md-8 intro">
+                <div className="left d-flex flex-column justify-content-center ">
+                    <span className="d-block mb-4 h2">Criar Loja</span>
+                    <form className='col-md-12' onSubmit={handleSubmit}>
             <div className="row">
               <div className="form-group col-md-4">
                 <label htmlFor="nome">Nome</label>
@@ -74,7 +61,7 @@ function NewStore() {
               </div>
               <div className="form-group col-md-4">
                 <label htmlFor="nascimento">Categoria</label>
-                <input type="text" className="form-control mt-2 mb-4" id="categoria" name="categoria" value={formData.nascimento} onChange={handleChange} placeholder="Digite a categoria" required/>
+                <input type="text" className="form-control mt-2 mb-4" id="categoria" name="categoria" value={formData.categoria} onChange={handleChange} placeholder="Digite a categoria" required/>
               </div>
               <div className="form-group col-md-4">
                 <label htmlFor="email">Email</label>
@@ -82,7 +69,7 @@ function NewStore() {
               </div>
               <div className="form-group col-md-4">
                 <label htmlFor="celular">Telefone</label>
-                <input type="text" className="form-control mt-2 mb-4" id="telefone" name="telefone" value={formData.celular} onChange={handleChange} placeholder="Digite seu celular" required/>
+                <input type="text" className="form-control mt-2 mb-4" id="telefone" name="telefone" value={formData.telefone} onChange={handleChange} placeholder="Digite seu celular" required/>
               </div>
             </div>
             <div className="row">

@@ -1,5 +1,6 @@
 const express = require('express');
 const userRoutes = require("./routes/users");
+const storeRoutes = require("./routes/stores");
 const cors = require('cors');
 const { connectToDatabase } = require('./db');
 
@@ -20,6 +21,7 @@ const startServer = async () => {
     
     // Rotas
     app.use('/usuarios', userRoutes);
+    app.use('/loja', storeRoutes);
 
     // Iniciar servidor
     const port = 8800;
