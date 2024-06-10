@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp.js';
 import ItemPage from './pages/ItemPage.js';
 import ForgotPassword from './pages/ForgotPassword.js'
 import NewPassword from './pages/NewPassword.js';
+import Profile from './pages/Profile.js';
 
 function Navbar() {
   const { user } = useUser();
@@ -37,7 +38,7 @@ function Navbar() {
               <button>Procurar</button>
               <button>Sobre</button>
               {user ? (
-                  <button><Link to='/signin' className="link-login">{getFirstName(user.nome)}</Link></button>
+                  <button><Link to='/profile' className="link-login">{getFirstName(user.nome)}</Link></button>
               ) : (
                   <button><Link to='/signin' className="link-login">Login</Link></button>
               )}
@@ -76,6 +77,7 @@ function App() {
                           <Route path="item" element={<ItemPage />} />
                           <Route path="password" element={<ForgotPassword />} />
                           <Route path="newpassword" element={<NewPassword />} />
+                          <Route path="profile" element={<Profile />} />
                       </Routes>
                   </div>
                   <footer className="footer mt-auto py-3">
