@@ -55,6 +55,10 @@ function Profile() {
         navigate('/signin'); // Redireciona para a página de login
     };
 
+    const createStore = () => {
+        navigate('/newstore'); // Redireciona para a página de login
+    };
+
     return (
         <div className='d-flex flex-row justify-content-center page-login'>
             <div className="col-md-8 intro">
@@ -103,7 +107,7 @@ function Profile() {
                         <button type='submit' className="btn btn-primary mt-3 mb-3">Editar</button>
                         <button className="btn btn-primary mt-3 mb-3 btn-logout" onClick={handleLogout}>Sair</button>
                     </form>
-                    <button className="btn btn-primary mt-3 mb-3"><Link to='/newstore' className="link-login">Criar Loja</Link></button>
+                    <button className="btn btn-primary mt-3 mb-3" onClick={createStore}>Criar Loja</button>
                 </div>
             </div>
         </div>
