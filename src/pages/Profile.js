@@ -124,7 +124,7 @@ function Profile() {
                         <button type='submit' className="btn btn-primary mt-3 mb-3">Editar</button>
                         <button className="btn btn-primary mt-3 mb-3 btn-logout" onClick={handleLogout}>Sair</button>
                     </form>
-                    <p>Nome da loja: {storeName}</p>
+                    <span className="d-block mb-4 h2">Minhas Lojas</span>
                     <button className="btn btn-primary mt-3 mb-3" onClick={createStore}>Criar Loja</button>
                 </div>
             </div>

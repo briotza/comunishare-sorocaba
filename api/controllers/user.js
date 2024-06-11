@@ -112,10 +112,14 @@ const updateUserProfile = async (req, res) => {
             [nome, nascimento, celular, endereco, numero, bairro, senha, email]);
 
         // Obtenha o usuário atualizado
-        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
-        const updatedUser = rows[0];
+        const [userRows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+        const updatedUser = userRows[0];
 
-        return res.status(200).json({ message: 'Usuário atualizado com sucesso', user: updatedUser });
+        // Busque as lojas associadas ao usuário
+        const [storeRows] = await db.query('SELECT * FROM lojas WHERE usuario_id = ?', [updatedUser.id]);
+        const userStores = storeRows;
+
+        return res.status(200).json({ message: 'Usuário atualizado com sucesso', user: updatedUser, stores: userStores });
     } catch (error) {
         console.error('Erro ao atualizar usuário:', error);
         return res.status(500).json({ message: 'Erro interno do servidor' });
