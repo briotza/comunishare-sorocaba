@@ -14,6 +14,7 @@ function Profile() {
     const [numero, setNumero] = useState('');
     const [bairro, setBairro] = useState('');
     const [senha, setSenha] = useState('');
+    const [lojas, setLojas] = useState([]); // Estado para armazenar as lojas do usuário
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,6 +26,7 @@ function Profile() {
             setEndereco(user.endereco);
             setNumero(user.numero);
             setBairro(user.bairro);
+            fetchUserStores(); // Buscar lojas do usuário ao carregar o componente
         }
     }, [user]);
 
@@ -35,6 +37,15 @@ function Profile() {
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
+    };
+
+    const fetchUserStores = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8800/loja/stores/${user.id}`);
+            setLojas(response.data); // Armazenar as lojas no estado
+        } catch (error) {
+            console.error('Erro ao buscar lojas do usuário:', error);
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -56,25 +67,8 @@ function Profile() {
     };
 
     const createStore = () => {
-        navigate('/newstore'); // Redireciona para a página de login
+        navigate('/newstore'); // Redireciona para a página de criação de loja
     };
-
-    const [storeName, setStoreName] = useState('');
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8800/usuarios/${user.id}`); // Assuming your backend has an endpoint to fetch user data including the store name
-                setStoreName(response.data.storeName);
-            } catch (error) {
-                console.error('Erro ao buscar dados do usuário:', error);
-            }
-        };
-
-        if (user) {
-            fetchUserData();
-        }
-    }, [user]);
 
     return (
         <div className='d-flex flex-row justify-content-center page-login'>
@@ -101,7 +95,6 @@ function Profile() {
                             </div>
                         </div>
                         <div className="row">
-                            
                             <div className="form-group col-md-4">
                                 <label htmlFor="endereco">Endereço</label>
                                 <input type="text" className="form-control mt-2 mb-4" id="endereco" name="endereco" value={endereco} onChange={(e) => setEndereco(e.target.value)} required />
@@ -122,10 +115,18 @@ function Profile() {
                             </div>
                         </div>
                         <button type='submit' className="btn btn-primary mt-3 mb-3">Editar</button>
-                        <button className="btn btn-primary mt-3 mb-3 btn-logout" onClick={handleLogout}>Sair</button>
+                        <button type='button' className="btn btn-primary mt-3 mb-3 btn-logout" onClick={handleLogout}>Sair</button>
                     </form>
-                    <span className="d-block mb-4 h2">Minhas Lojas</span>
-                    <button className="btn btn-primary mt-3 mb-3" onClick={createStore}>Criar Loja</button>
+                    
+                    <div className='mt-5'>
+                        <h2>Minhas Lojas</h2>
+                        <ul>
+                            {lojas.map((loja) => (
+                                <li style={{ listStyleType: 'decimal', marginTop: 15 }} key={loja.id}><Link className='link-stores h5'>{loja.nome}</Link></li>
+                            ))}
+                        </ul>
+                    </div>
+                    <button type='button' className="btn btn-primary mt-3 mb-3" onClick={createStore}>Criar Loja</button>
                 </div>
             </div>
         </div>

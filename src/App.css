@@ -167,3 +167,11 @@
 .btn-logout{
     margin-left: 10px;
 }
+
+.li{
+    list-style-type: none;
+}
+
+.link-stores{
+    color: black;
+}

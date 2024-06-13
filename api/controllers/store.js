@@ -2,21 +2,15 @@ const createStore = async (req, res) => {
     try {
         const { nome, categoria, email, telefone, endereco, numero, bairro, id_usuario } = req.body;
 
-        console.log('Recebida solicitação para criar loja:', req.body);
-        console.log('ID do usuário ao criar loja:', id_usuario);
-
         if (!nome || !categoria || !email || !telefone || !endereco || !numero || !bairro || !id_usuario) {
-            console.log('Campos obrigatórios ausentes:', req.body);
             return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
         }
 
         const db = req.app.get('db');
-        console.log('Conectando ao banco de dados...');
 
         await db.query('INSERT INTO loja (nome, categoria, email, telefone, endereco, numero, bairro, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
         [nome, categoria, email, telefone, endereco, numero, bairro, id_usuario]);
 
-        console.log('Loja criada com sucesso:', nome);
         return res.status(201).json({ message: 'Loja criada com sucesso' });
     } catch (error) {
         console.error('Erro ao criar loja:', error);
@@ -24,4 +18,22 @@ const createStore = async (req, res) => {
     }
 };
 
-module.exports = { createStore };
+const getStoresByUserId = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+
+        const db = req.app.get('db');
+        const [rows] = await db.query('SELECT * FROM loja WHERE usuario_id = ?', [userId]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Nenhuma loja encontrada para este usuário' });
+        }
+
+        return res.status(200).json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar lojas:', error);
+        return res.status(500).json({ message: 'Erro interno do servidor' });
+    }
+};
+
+module.exports = { createStore, getStoresByUserId };
