@@ -16,6 +16,7 @@ import ForgotPassword from './pages/ForgotPassword.js'
 import NewPassword from './pages/NewPassword.js';
 import Profile from './pages/Profile.js';
 import NewStore from './pages/NewStore.js';
+import MyStore from './pages/MyStore.js';
 
 function Navbar() {
   const { user } = useUser();
@@ -80,6 +81,7 @@ function App() {
                           <Route path="newpassword" element={<NewPassword />} />
                           <Route path="profile" element={<Profile />} />
                           <Route path="newstore" element={<NewStore />} />
+                          <Route path="mystore" element={<MyStore />} />
                           
                       </Routes>
                   </div>

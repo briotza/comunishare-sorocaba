@@ -122,7 +122,7 @@ function Profile() {
                         <h2>Minhas Lojas</h2>
                         <ul>
                             {lojas.map((loja) => (
-                                <li style={{ listStyleType: 'decimal', marginTop: 15 }} key={loja.id}><Link className='link-stores h5'>{loja.nome}</Link></li>
+                                <li style={{ listStyleType: 'decimal', marginTop: 15 }} key={loja.id}><Link className='link-stores h5' to={'/mystore'}>{loja.nome}</Link></li>
                             ))}
                         </ul>
                     </div>
