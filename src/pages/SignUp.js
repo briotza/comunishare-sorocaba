@@ -80,12 +80,13 @@ function SignUp() {
                 <label htmlFor="email">Email</label>
                 <input type="email" className="form-control mt-2 mb-4" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Digite seu email" required/>
               </div>
-            </div>
-            <div className="row">
               <div className="form-group col-md-4">
                 <label htmlFor="celular">Celular</label>
                 <input type="text" className="form-control mt-2 mb-4" id="celular" name="celular" value={formData.celular} onChange={handleChange} placeholder="Digite seu celular" required/>
               </div>
+            </div>
+            <div className="row">
+              
               <div className="form-group col-md-4">
                 <label htmlFor="endereco">Endereço</label>
                 <input type="text" className="form-control mt-2 mb-4" id="endereco" name="endereco" value={formData.endereco} onChange={handleChange} placeholder="Digite seu endereço" required/>
