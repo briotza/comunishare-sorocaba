@@ -36,4 +36,21 @@ const getStoresByUserId = async (req, res) => {
     }
 };
 
-module.exports = { createStore, getStoresByUserId };
+const getStoreById = async (req, res) => {
+    try {
+        const storeId = req.params.id;
+
+        const [rows] = await db.query('SELECT * FROM lojas WHERE id = ?', [storeId]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Loja não encontrada' });
+        }
+
+        return res.status(200).json(rows[0]); // Retorna apenas o primeiro resultado encontrado
+    } catch (error) {
+        console.error('Erro ao buscar detalhes da loja:', error);
+        return res.status(500).json({ message: 'Erro interno do servidor' });
+    }
+};
+
+module.exports = { createStore, getStoresByUserId, getStoreById };

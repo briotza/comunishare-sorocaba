@@ -54,7 +54,7 @@ function Navbar() {
            <button>Procurar</button>
            <button>Sobre</button>
            {user ? (
-                  <button><Link to='/signin' className="link-login">{getFirstName(user.nome)}</Link></button>
+                  <button><Link to='/profile' className="link-login">{getFirstName(user.nome)}</Link></button>
               ) : (
                   <button><Link to='/signin' className="link-login">Login</Link></button>
               )}
@@ -81,7 +81,7 @@ function App() {
                           <Route path="newpassword" element={<NewPassword />} />
                           <Route path="profile" element={<Profile />} />
                           <Route path="newstore" element={<NewStore />} />
-                          <Route path="mystore" element={<MyStore />} />
+                          <Route path="/mystore/:id" element={<MyStore />} />
                           
                       </Routes>
                   </div>

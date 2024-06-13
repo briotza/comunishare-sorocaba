@@ -1,32 +1,54 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import axios from "axios";
 import Foto from "../assets/img/no-pic.png";
 import Social from "../assets/img/social.png";
 
 function MyStore() {
   const location = useLocation();
+  const { id } = useParams();
+  const [storeDetails, setStoreDetails] = useState(null);
+
+  useEffect(() => {
+    const fetchStoreDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8800/loja/${id}`);
+        console.log('Dados da loja:', response.data); // Verifica se os dados foram buscados corretamente
+        setStoreDetails(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar detalhes da loja:', error);
+      }
+    };
+  
+    fetchStoreDetails();
+  }, [id]);
+  
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
+  if (!storeDetails) {
+    return <div>Carregando...</div>;
+  }
+
   return (
-    <div>
+    <div className="my-store-container">
       <div className="col-md-12 d-flex flex-row justify-content-center">
         <div className="col-md-4 intro">
           <div className="left d-flex flex-column justify-content-center mb-4">
-            <span className="d-block mb-2 h2">Nome da loja</span>
-            <p className="mt-0">CATEGORIA</p>
+            <span className="d-block mb-2 h2">{storeDetails.nome}</span>
+            <p className="mt-0">{storeDetails.categoria}</p>
             <p className="mt-1">
-              Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing
+              Descrição: Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
             </p>
             <p className="mt-2">
-              <b>Endereço: </b>Lorem ipsum dolor sit amet
+              <b>Endereço: </b>{storeDetails.endereco}
             </p>
             <p className="mt-0">
-              <b>Telefone: </b>(ddd) 99999-9999
+              <b>Telefone: </b>{storeDetails.telefone}
             </p>
             <img
               src={Social}
@@ -63,7 +85,7 @@ function MyStore() {
 
       <div className="col-md-12 d-flex flex-column align-items-center mt-3 pt-5 recommendations">
         <div className="d-flex flex-column flex-sm-row mt-4">
-            {/* 
+          {/* 
           <Link className="a" to="/item">
             <button className="d-flex flex-column btn-item">
               <img src={Foto} alt="Imagem exemplo" className="img-fluid mb-2" />
