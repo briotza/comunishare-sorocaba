@@ -5,7 +5,7 @@ import { useUser } from "./UserContext";
 import { Link } from "react-router-dom";
 
 function Profile() {
-    const { user, setUser } = useUser(); // Obtenha o usuário logado do contexto
+    const { user, setUser } = useUser();
     const [nome, setNome] = useState("");
     const [nascimento, setNascimento] = useState("");
     const [email, setEmail] = useState("");
@@ -14,19 +14,19 @@ function Profile() {
     const [numero, setNumero] = useState("");
     const [bairro, setBairro] = useState("");
     const [senha, setSenha] = useState("");
-    const [lojas, setLojas] = useState([]); // Estado para armazenar as lojas do usuário
+    const [lojas, setLojas] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
             setNome(user.nome);
-            setNascimento(formatDate(user.nascimento)); // Format the date
+            setNascimento(formatDate(user.nascimento)); 
             setEmail(user.email);
             setCelular(user.celular);
             setEndereco(user.endereco);
             setNumero(user.numero);
             setBairro(user.bairro);
-            fetchUserStores(); // Buscar lojas do usuário ao carregar o componente
+            fetchUserStores(); 
         }
     }, [user]);
 
@@ -34,7 +34,7 @@ function Profile() {
         if (!dateString) return "";
         const date = new Date(dateString);
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+        const month = String(date.getMonth() + 1).padStart(2, "0");
         const day = String(date.getDate()).padStart(2, "0");
         return `${year}-${month}-${day}`;
     };

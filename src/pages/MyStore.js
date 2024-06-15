@@ -18,7 +18,7 @@ function MyStore() {
       try {
         const response = await axios.get(`http://localhost:8800/loja/stores/${storeId}`);
         console.log('Dados da loja:', response.data);
-        // Aqui acessamos o primeiro elemento do array retornado
+        
         setStoreDetails(response.data[0]);
       } catch (error) {
         console.error('Erro ao buscar detalhes da loja:', error);
