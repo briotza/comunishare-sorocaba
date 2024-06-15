@@ -8,7 +8,7 @@ const createStore = async (req, res) => {
 
         const db = req.app.get('db');
 
-        await db.query('INSERT INTO loja (nome, categoria, email, telefone, endereco, numero, bairro, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
+        await db.query('INSERT INTO lojas (nome, categoria, email, telefone, endereco, numero, bairro, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
         [nome, categoria, email, telefone, endereco, numero, bairro, id_usuario]);
 
         return res.status(201).json({ message: 'Loja criada com sucesso' });
@@ -23,7 +23,7 @@ const getStoresByUserId = async (req, res) => {
         const userId = req.params.userId;
 
         const db = req.app.get('db');
-        const [rows] = await db.query('SELECT * FROM loja WHERE usuario_id = ?', [userId]);
+        const [rows] = await db.query('SELECT * FROM lojas WHERE usuario_id = ?', [userId]);
 
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Nenhuma loja encontrada para este usuário' });
