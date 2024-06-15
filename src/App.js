@@ -6,7 +6,7 @@ import './App.css';
 import logo from './assets/img/logo.png';
 import { UserProvider, useUser } from './pages/UserContext.js'
 
-//Páginas
+// Páginas
 import Home from './pages/Home.js';
 import SinglePage from './pages/SinglePage.js';
 import SignIn from './pages/SignIn.js';
@@ -30,7 +30,7 @@ function Navbar() {
     if (!fullName) return '';
     const firstName = fullName.split(' ')[0];
     return firstName;
-};
+  };
 
   return (
     <div className="row m-0 p-0">
@@ -66,7 +66,7 @@ function Navbar() {
 
 function App() {
   return (
-      <UserProvider> {/* Mova o UserProvider para envolver todo o conteúdo dentro do BrowserRouter */}
+      <UserProvider>
           <BrowserRouter>
               <div className="container-fluid page-container p-0">
                   <div className="row m-0">
@@ -81,8 +81,7 @@ function App() {
                           <Route path="newpassword" element={<NewPassword />} />
                           <Route path="profile" element={<Profile />} />
                           <Route path="newstore" element={<NewStore />} />
-                          <Route path="/mystore/:id" element={<MyStore />} />
-                          
+                          <Route path="mystore" element={<MyStore />} />
                       </Routes>
                   </div>
                   <footer className="footer mt-auto py-3">
@@ -95,6 +94,5 @@ function App() {
       </UserProvider>
   );
 }
-
 
 export default App;
