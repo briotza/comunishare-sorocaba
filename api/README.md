@@ -28,16 +28,37 @@ Se você ainda não possui o MySQL instalado localmente, faça o download e siga
 Utilize o seguinte comando para criar a tabela de usuários no banco de dados `comunishare`:
 
 ```sql
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(60),
-    nascimento DATE,
-    email VARCHAR(70),
-    celular VARCHAR(20),
-    endereco VARCHAR(60),
-    numero INT,
-    bairro VARCHAR(45),
-    senha VARCHAR(45)
+CREATE TABLE comunishare.usuarios (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(60) NOT NULL,
+  nascimento DATE NOT NULL,
+  email VARCHAR(70) NOT NULL,
+  celular VARCHAR(20) NOT NULL,
+  endereco VARCHAR(60) NOT NULL,
+  numero INT NOT NULL,
+  bairro VARCHAR(45) NOT NULL,
+  senha VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id)
+);
+```
+
+### Criação da Tabela de Lojas:
+
+Utilize o seguinte comando para criar a tabela de lojas no banco de dados `comunishare`:
+
+```sql
+CREATE TABLE comunishare.lojas (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  categoria VARCHAR(45) NOT NULL,
+  email VARCHAR(70) NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+  endereco VARCHAR(60) NOT NULL,
+  numero INT NOT NULL,
+  bairro VARCHAR(45) NOT NULL,
+  usuario_id INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 ```
 
