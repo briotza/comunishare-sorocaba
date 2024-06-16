@@ -2,7 +2,6 @@
 const createUser = async (req, res) => {
     const { nome, nascimento, email, celular, endereco, numero, bairro, senha } = req.body;
 
-    // Verifica se todos os campos necessários estão presentes
     if (!nome || !nascimento || !email || !celular || !endereco || !numero || !bairro || !senha) {
         return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
     }
@@ -10,13 +9,11 @@ const createUser = async (req, res) => {
     try {
         const db = req.app.get('db');
 
-        // Verifica se o email já está cadastrado
         const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
         if (rows.length > 0) {
             return res.status(409).json({ message: 'Este email já está cadastrado' });
         }
 
-        // Insere os dados do usuário no banco de dados
         await db.query('INSERT INTO usuarios (nome, nascimento, email, celular, endereco, numero, bairro, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [nome, nascimento, email, celular, endereco, numero, bairro, senha]);
 
         return res.status(201).json({ message: 'Usuário criado com sucesso' });
@@ -34,7 +31,6 @@ const loginUser = async (req, res) => {
         const db = req.app.get('db');
         console.log('Conectando ao banco de dados...');
 
-        // Verifica se o usuário com o email e senha fornecidos existe no banco de dados
         const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
         console.log('Resultado da consulta:', rows);
 
@@ -53,7 +49,6 @@ const loginUser = async (req, res) => {
     }
 };
 
-// Adicione isso no arquivo user.js
 const updateUserPassword = async (req, res) => {
     const { email, newPassword } = req.body;
     console.log('Recebido solicitação de atualização de senha para o email:', email);
@@ -67,7 +62,6 @@ const updateUserPassword = async (req, res) => {
             console.log('Email inválido');
             return res.status(401).json({ message: 'Email inválido' });
         } else {
-            // Atualize a senha do usuário no banco de dados
             const [updateResult] = await db.query('UPDATE usuarios SET senha = ? WHERE email = ?', [newPassword, email]);
             console.log('Resultado da atualização:', updateResult); 
 
@@ -107,15 +101,12 @@ const updateUserProfile = async (req, res) => {
     try {
         const db = req.app.get('db');
         
-        // Atualize os dados do usuário no banco de dados
         await db.query('UPDATE usuarios SET nome = ?, nascimento = ?, celular = ?, endereco = ?, numero = ?, bairro = ?, senha = ? WHERE email = ?', 
             [nome, nascimento, celular, endereco, numero, bairro, senha, email]);
 
-        // Obtenha o usuário atualizado
         const [userRows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
         const updatedUser = userRows[0];
 
-        // Busque as lojas associadas ao usuário
         const [storeRows] = await db.query('SELECT * FROM lojas WHERE usuario_id = ?', [updatedUser.id]);
         const userStores = storeRows;
 
@@ -126,11 +117,7 @@ const updateUserProfile = async (req, res) => {
     }
 };
 
-
-
 module.exports = { createUser, loginUser, updateUserPassword, checkEmail, updateUserProfile };
-
-
 
 
   

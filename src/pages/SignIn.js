@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
-import { useUser } from './UserContext'; // Importe o hook useUser
+import { useUser } from './UserContext';
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { setUser } = useUser(); // Use o hook useUser para obter setUser
+    const { setUser } = useUser();
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
@@ -26,7 +26,7 @@ function SignIn() {
 
             if (response.status === 200) {
                 alert('Login bem-sucedido');
-                setUser(response.data.user); // Armazena as informações do usuário
+                setUser(response.data.user); 
                 navigate('/');
             }
         } catch (error) {

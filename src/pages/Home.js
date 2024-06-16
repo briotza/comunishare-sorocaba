@@ -2,24 +2,21 @@ import React, { useState, useEffect } from "react";
 import Moca from "../assets/img/moca.jpeg";
 import Foto from "../assets/img/no-pic.png";
 import { Link, useNavigate } from 'react-router-dom';
-import { useUser } from './UserContext'; // Importe useUser do contexto de usuário
+import { useUser } from './UserContext'; 
 import "../App.css";
 
 function Home() {
-  const { user } = useUser(); // Obtenha o usuário do contexto
-  const navigate = useNavigate(); // Use useNavigate para redirecionar
+  const { user } = useUser(); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const handleSignup = () => {
-    // Verifique se o usuário está logado
     if (user) {
-      // Se estiver logado, redirecione para a página de perfil
       navigate('/profile');
     } else {
-      // Se não estiver logado, redirecione para a página de login
       navigate('/signin');
     }
   };

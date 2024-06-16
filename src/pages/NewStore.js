@@ -49,7 +49,7 @@ function NewStore() {
             if (response.status === 201) {
                 alert('Loja criada com sucesso!');
                 console.log('Dados da loja cadastrada:', formData);
-                navigate('/profile'); // Redireciona para a página de perfil
+                navigate('/profile'); 
             }
         } catch (error) {
             console.error('Erro ao criar loja:', error.response ? error.response.data : error.message);

@@ -1,4 +1,4 @@
-// middleware/auth.js
+
 const jwt = require('jsonwebtoken');
 
 const authenticateUser = (req, res, next) => {
@@ -13,7 +13,7 @@ const authenticateUser = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, 'seu_segredo'); // Substitua 'seu_segredo' pelo seu segredo
+        const decoded = jwt.verify(token, 'seu_segredo'); 
         req.user = decoded;
         next();
     } catch (error) {

@@ -42,7 +42,7 @@ function Profile() {
     const fetchUserStores = async () => {
         try {
             const response = await axios.get(`http://localhost:8800/loja/stores/${user.id}`);
-            setLojas(response.data); // Armazenar as lojas no estado
+            setLojas(response.data);
         } catch (error) {
             console.error("Erro ao buscar lojas do usuário:", error);
         }
@@ -57,7 +57,7 @@ function Profile() {
             );
             if (response.status === 200) {
                 alert("Informações atualizadas com sucesso");
-                setUser(response.data.user); // Atualiza o contexto do usuário
+                setUser(response.data.user);
             }
         } catch (error) {
             alert("Erro ao atualizar informações");
@@ -65,12 +65,12 @@ function Profile() {
     };
 
     const handleLogout = () => {
-        setUser(null); // Limpa o contexto do usuário
-        navigate("/signin"); // Redireciona para a página de login
+        setUser(null); 
+        navigate("/signin"); 
     };
 
     const createStore = () => {
-        navigate("/newstore"); // Redireciona para a página de criação de loja
+        navigate("/newstore"); 
     };
 
     const handleStoreClick = (storeId) => {
