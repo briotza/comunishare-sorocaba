@@ -1,6 +1,6 @@
 # ComuniShare Sorocaba
 
-O *ComuniShare Sorocaba* é uma plataforma online projetada para facilitar a conexão entre prestadores de serviços e vendedores de produtos na cidade de Sorocaba. Este sistema foi desenvolvido como parte do projeto de entrega da UPX III e atualmente está em fase de protótipo.
+O *ComuniShare Sorocaba* é uma plataforma online projetada para facilitar a conexão entre prestadores de serviços e vendedores de produtos na cidade de Sorocaba. Este sistema foi desenvolvido como parte do projeto de entrega da UPX IV e atualmente está em fase de protótipo.
 
 ## Sobre o Projeto
 
