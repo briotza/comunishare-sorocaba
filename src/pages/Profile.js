@@ -200,17 +200,20 @@ function Profile() {
                     <div className="mt-5">
                         <h2>Minhas Lojas</h2>
                         <ul>
-                            {lojas.map((loja) => (
-                                <li key={loja.id}>
-                                    <button 
-                                        className="link-stores h5"
-                                        onClick={() => handleStoreClick(loja.id)}
-                                    >
-                                        {loja.nome}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
+    {lojas.map((loja) => (
+        <li key={loja.id}>
+            <Link
+                to={`/mystore`}
+                className="link-stores h5"
+                onClick={() => localStorage.setItem('selectedStoreId', loja.id)}
+            >
+                {loja.nome}
+            </Link>
+        </li>
+    ))}
+</ul>
+
+                        
                     </div>
                     <button
                         type="button"
