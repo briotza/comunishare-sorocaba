@@ -38,8 +38,8 @@ function MyStore() {
 
   return (
     <div className="my-store-container">
-      <div className="col-md-12 d-flex flex-row justify-content-center">
-        <div className="col-md-4 intro">
+      <div className="col-12 d-flex flex-column flex-md-row justify-content-center">
+        <div className="col-12 col-md-4 intro">
           <div className="left d-flex flex-column justify-content-center mb-4">
             <span className="d-block mb-2 h2">{storeDetails.nome}</span>
             <p className="mt-0">{storeDetails.categoria}</p>
