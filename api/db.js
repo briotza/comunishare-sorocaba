@@ -1,8 +1,8 @@
 const mysql = require('mysql2/promise'); 
 
 // Configuração do Banco
-const dbConfig = process.env.JAWSDB_URL 
-    ? process.env.JAWSDB_URL 
+const dbConfig = process.env.JAWSDB_URL
+    ? process.env.JAWSDB_URL
     : {
         host: "localhost",
         user: "root",
@@ -12,10 +12,7 @@ const dbConfig = process.env.JAWSDB_URL
 
 const connectToDatabase = async () => {
     try {
-        const connection = process.env.JAWSDB_URL 
-            ? await mysql.createConnection(process.env.JAWSDB_URL) 
-            : await mysql.createConnection(dbConfig);
-            
+        const connection = await mysql.createConnection(dbConfig);
         console.log('Conexão com o banco de dados estabelecida!');
         return connection;
     } catch (err) {
