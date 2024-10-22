@@ -13,6 +13,7 @@ O sistema *ComuniShare Sorocaba* foi desenvolvido utilizando as seguintes tecnol
 - Frontend: React, Bootstrap
 - Backend: Node.js, Express
 - Banco de Dados: MySQL
+- Hospedagem: Vercel
 
 ## Como Rodar
 
