@@ -1,12 +1,14 @@
 const mysql = require('mysql2/promise'); 
 
 // Configuração do Banco
-const dbConfig = {
-    host: "localhost",
-    user: "root",
-    password: "admin",
-    database: "comunishare"
-};
+const dbConfig = process.env.JAWSDB_URL
+    ? process.env.JAWSDB_URL
+    : {
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "comunishare"
+    };
 
 const connectToDatabase = async () => {
     try {
